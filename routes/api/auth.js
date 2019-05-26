@@ -21,7 +21,6 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-
 // @route   POST api/auth
 // @desc    Authenticate user & get token
 // @access  Public
@@ -48,7 +47,6 @@ router.post('/',
 
       const isMatch = await bcrypt.compare(password, user.password);
 
-      console.log(isMatch);
 
       if (!isMatch) {
         return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
